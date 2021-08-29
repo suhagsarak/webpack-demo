@@ -1,3 +1,4 @@
-import "../styles.scss";
-const app = require("./app")
-console.log(["a", "b", "c"]);
+import "./styles.scss";
+import "./styles/styles.css";
+import "./index.html";
+import "./scripts/app";

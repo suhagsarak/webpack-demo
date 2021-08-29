@@ -10,6 +10,10 @@ module.exports = {
                 use: 'svg-inline-loader'
             },
             {
+                test: /\.html$/i,
+                loader: "html-loader",
+            },
+            {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
@@ -27,6 +31,12 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js"
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [
+        new HtmlWebpackPlugin({
+            hash: true,
+            filename: './index.html',
+            template: './src/index.html',
+        })
+    ],
     mode: process.env.NODE_ENV === "production" ? "production" : "development"
 };
