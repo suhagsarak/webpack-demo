@@ -1,0 +1,412 @@
+$color-red3: #d41f16;
+$color-red-4: #fff1f0;
+
+$color-pp-blue: #00a9b7;
+$color-pp-blue1: #01b2c0;
+
+$color-light-white6: #e6f5f6;
+$color-light-white8: #f7f7f9;
+$color-light-white36: #fcfdfd;
+
+$color-pp-ligher-blue23: #768da0;
+$color-pp-ligher-blue25: #c6d6e5;
+$color-pp-ligher-blue26: #848796;
+
+$color-dark-grey5: #87888c;
+$color-dark-grey6: #fafafa;
+$color-dark-grey62: #cacece;
+$color-light-grey4: #8fa4af;
+
+$color-lighter-grey25: #90a0ae;
+$color-lighter-grey69: #879ba0;
+$color-lighter-grey73: #a1a8ae;
+
+$name: "sched";
+
+// Tooltip Common
+.tooltip-#{$name} {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    .hint-icon {
+        color: $color-light-grey4;
+        position: absolute;
+        top: -13px;
+    }
+    .tooltiptext {
+        // Hide it
+        visibility: hidden;
+        z-index: 1000;
+
+        // Position
+        position: absolute;
+
+        // Styling
+        width: 230px;
+        background-color: white;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        font-size: 12px;
+        letter-spacing: 0.4px;
+        color: $color-lighter-grey73;
+
+        // Arrow
+        &::after {
+            content: "";
+            position: absolute;
+            border-width: 5px;
+            border-style: solid;
+        }
+        // Position text
+        &.top-right {
+            bottom: 26px;
+            left: -64px;
+            // Position and reshape arrow
+            &::after {
+                top: 100%;
+                left: 27%;
+                margin-left: -5px;
+                border-color: white transparent transparent transparent;
+            }
+        }
+        &.top-center {
+            bottom: 20px;
+            left: -93px;
+            &::after {
+                top: 100%;
+                left: 46%;
+                margin-left: -5px;
+                border-color: white transparent transparent transparent;
+            }
+        }
+        &.bottom-center {
+            top: 20px;
+            left: -93px;
+            &::after {
+                bottom: 100%;
+                left: 46%;
+                margin-left: -5px;
+                border-color: transparent transparent white transparent;
+            }
+        }
+    }
+    &:hover {
+        .tooltiptext {
+            // Show it
+            visibility: visible;
+        }
+    }
+}
+
+// Button Loader Comman
+.loader-#{$name} {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $color-light-grey4;
+    border-radius: 50%;
+    border-top: 1px solid red;
+    -webkit-animation: spin 1s linear infinite;
+    // Safari
+    animation: spin 1s linear infinite;
+    // Safari
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+// Checkbox Comman
+.checkbox-#{$name} {
+    position: relative;
+    .form-check-label {
+        padding-left: 0px;
+    }
+    .regular-checkbox-#{$name} {
+        position: relative;
+        display: none !important;
+        + .checkbox-label-#{$name} {
+            background-color: $color-dark-grey6;
+            border: 1px solid $color-dark-grey62;
+            padding: 7px;
+            border-radius: 3px;
+            display: inline-block;
+            position: relative;
+            top: 3px;
+            left: 0px;
+            margin-bottom: 0;
+            margin-right: 8px;
+            &:hover {
+                border-color: $color-pp-blue1;
+            }
+        }
+        &:checked {
+            + .checkbox-label-#{$name} {
+                background-color: $color-pp-blue;
+                border: 1px solid $color-pp-blue;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    color: white;
+                    left: 4px;
+                    top: 0px;
+                    width: 5px;
+                    height: 10px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+// Tag list Comman
+.tag-suggestion-#{$name} {
+    position: relative;
+    .tag-suggestion-cntr {
+        background-color: $color-light-white36;
+        padding: 3px 9px 3px 9px;
+        border: solid 1px $color-pp-ligher-blue25;
+        border-radius: 2px;
+        min-height: 35px;
+        .carets::before {
+            font-size: 9px;
+            position: absolute;
+            right: 12px;
+            top: 14px;
+        }
+        .tag-list {
+            overflow-y: auto;
+            display: inline;
+        }
+        .tag-list-item {
+            display: inline-block;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.43;
+            height: unset;
+            background-color: $color-light-white6;
+            padding: 1px 9px 1px 12px;
+            margin-right: 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-radius: 100px;
+            color: $color-pp-ligher-blue26;
+            vertical-align: top;
+            border: none;
+            .icon-x-icon {
+                &::before {
+                    font-size: 8px;
+                    position: relative;
+                    top: 1px;
+                }
+            }
+            .team-icon {
+                fill: $color-pp-ligher-blue26;
+            }
+            &.invalid-item {
+                border-radius: 100px;
+                border: solid 1px $color-red-4;
+                background-color: $color-red-4;
+                color: $color-red3;
+                span,
+                .cross-icon {
+                    color: $color-red3;
+                }
+            }
+        }
+        .tag-user-input-cntr {
+            width: 181px;
+            display: inline-block;
+            border: 0;
+            border-radius: 0;
+            color: $color-dark-grey5;
+            position: relative;
+            .caret-icon {
+                position: absolute;
+                top: 9px;
+                right: 0;
+                color: $color-lighter-grey25;
+            }
+            input {
+                border: 0;
+                box-shadow: none;
+                padding: 0;
+                width: 100%;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .tag-dropdown-list {
+        position: absolute;
+        left: 0;
+        overflow-y: auto;
+        background-color: $color-light-white36;
+        overflow-x: hidden;
+        z-index: 2;
+        width: 100%;
+        box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.11);
+        border: 0;
+        border-radius: 0;
+        .tag-dropdown-list-item {
+            width: 100%;
+            color: $color-pp-ligher-blue23;
+            &:hover {
+                background-color: rgba(0, 169, 183, 0.07);
+            }
+        }
+    }
+}
+
+// Input Clear Widget
+.single-tag-input-#{$name} {
+    position: relative;
+    .single-tag-cntr {
+        display: flex;
+        padding: 3px 9px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 2px;
+        min-height: 35px;
+        .single-tag {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            font-size: 14px;
+            line-height: 1.43;
+            height: unset;
+            padding-top: 3px;
+            color: $color-lighter-grey69;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 24px;
+        }
+        input {
+            line-height: 1.29;
+            color: $color-lighter-grey69;
+            font-size: 14px;
+            border: 0;
+            box-shadow: none;
+            padding: 0;
+            width: 100%;
+            color: $color-lighter-grey69;
+            &:focus {
+                outline: none;
+            }
+        }
+        .icon-x-icon {
+            position: absolute;
+            top: 11px;
+            right: 11px;
+            font-size: 12px;
+            color: $color-lighter-grey69;
+            cursor: pointer;
+        }
+    }
+    .single-tag-dropdown-list {
+        position: absolute;
+        left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: white;
+        padding-left: 0;
+        padding-right: 0;
+        z-index: 2;
+        width: 100%;
+        box-shadow: 0 3px 8px 2px rgba(0, 0, 0, 0.11);
+        border: 0;
+        border-radius: 0;
+        color: $color-lighter-grey69;
+        font-size: 14px;
+        .single-tag-dropdown-list-item {
+            width: 100%;
+            color: $color-lighter-grey69;
+            cursor: pointer;
+            padding: 5px 10px;
+            &:hover {
+                background-color: $color-light-white8;
+            }
+        }
+    }
+}
+
+
+// check this
+/* Switch */
+.switch-sched-con {
+    .switch-sched {
+        position: relative;
+        display: inline-block;
+        width: 32px;
+        height: 16px;
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            display: none;
+        }
+    }
+    .slider-sched {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $color-light-grey16;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        &:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            bottom: 1px;
+            left: 1px;
+            background-color: white;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    input:checked + .slider-sched {
+        background-color: $color-pp-blue1;
+    }
+    input:focus + .slider-sched {
+        box-shadow: 0 0 1px $color-pp-blue1;
+    }
+    input:checked + .slider-sched:before {
+        -webkit-transform: translateX(16px);
+        -ms-transform: translateX(16px);
+        transform: translateX(16px);
+    }
+    input:checked + .slider-sched:after {
+        display: none;
+    }
+    .slider-sched.round {
+        border-radius: 16px;
+        border: none;
+    }
+    .slider-sched.round:before {
+        border-radius: 50%;
+    }
+}

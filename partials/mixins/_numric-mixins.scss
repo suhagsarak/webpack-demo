@@ -1,0 +1,9 @@
+@mixin font-size {
+    @for $i from 1 through 50 {
+        .f-#{$i} {
+            font-size: #{$i + "px"};
+        }
+    }
+}
+
+@include font-size;
