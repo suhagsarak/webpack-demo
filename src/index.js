@@ -1,4 +1,7 @@
-import "./styles.scss";
+
+// Styles
+import "./styles/styles.scss";
 import "./styles/styles.css";
-import "./index.html";
+
+// Scripts
 import "./scripts/app";
